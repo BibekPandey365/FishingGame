@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5129442274124774408}
   - component: {fileID: 973870778687133752}
   - component: {fileID: 699134784260240494}
+  - component: {fileID: 187304369737889403}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -190,3 +191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+--- !u!114 &187304369737889403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129442274124774409}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca36e39f13611a4199c865f67c4a8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefabs:
+  - {fileID: 0}
+  offsetX: -0.05
+  offsetY: -0.35
