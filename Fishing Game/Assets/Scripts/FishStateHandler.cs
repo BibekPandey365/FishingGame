@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FishStateHandler : MonoBehaviour
 {
+    [SerializeField] float hungryYPosition;
     float switchTime;
+    FishSpriteSwitcher fishSpriteSwitcher;
 
     public enum FishState
     {
@@ -15,9 +17,11 @@ public class FishStateHandler : MonoBehaviour
 
     void Start()
     {
+        fishSpriteSwitcher = GetComponent<FishSpriteSwitcher>();
         currentState = FishState.Normal;
 
         switchTime = Random.Range(1f, 5f);
+        Debug.Log(switchTime);
     }
 
     void Update()
@@ -44,12 +48,13 @@ public class FishStateHandler : MonoBehaviour
 
     private void NormalHungrySwitcherProcess()
     {
-        if (currentState != FishState.Normal || currentState != FishState.Hungry) return;
-
-        switchTime -= Time.deltaTime;
-        if (switchTime < 0f)
+        if (currentState == FishState.Normal || currentState == FishState.Hungry)
         {
-            NormalHungryStateSwitcher();
+            switchTime -= Time.deltaTime;
+            if (switchTime < 0f)
+            {
+                NormalHungryStateSwitcher();
+            }
         }
     }
 
@@ -70,6 +75,7 @@ public class FishStateHandler : MonoBehaviour
 
         Debug.Log(switchTime);
         print(currentState);
+        fishSpriteSwitcher.SpriteSwitcher(currentState);
     }
 
     void NormalState()
