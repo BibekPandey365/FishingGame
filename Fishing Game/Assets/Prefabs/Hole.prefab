@@ -198,12 +198,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5129442274124774409}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ca36e39f13611a4199c865f67c4a8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefabs:
-  - {fileID: 0}
+  - {fileID: 5321182991223988804, guid: 4acbc49319eff7b4baa28f4f4fca3f9f, type: 3}
   offsetX: -0.05
   offsetY: -0.35

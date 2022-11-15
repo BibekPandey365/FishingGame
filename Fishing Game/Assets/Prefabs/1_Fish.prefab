@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5321182991223988806}
   - component: {fileID: 2080344082616287219}
   - component: {fileID: -3821701062100153376}
-  - component: {fileID: 6323345900581575316}
   m_Layer: 0
   m_Name: 1_Fish
   m_TagString: Untagged
@@ -97,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09757201798b33543a44f9f2fbaa2cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hungryYPosition: 0.3
 --- !u!114 &-3821701062100153376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,22 +111,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalImg: {fileID: 21300000, guid: 65cb4e4046b8ea041bc12e35d07e3efe, type: 3}
   hungryImg: {fileID: 21300000, guid: cd31fd22d65160048abdbe1f58f9ed28, type: 3}
---- !u!95 &6323345900581575316
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5321182991223988804}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1df2f0b4c128fae4186a030b14ecbe4e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

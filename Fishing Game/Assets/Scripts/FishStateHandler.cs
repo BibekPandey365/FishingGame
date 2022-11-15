@@ -20,7 +20,7 @@ public class FishStateHandler : MonoBehaviour
         fishSpriteSwitcher = GetComponent<FishSpriteSwitcher>();
         currentState = FishState.Normal;
 
-        switchTime = Random.Range(1f, 5f);
+        switchTime = Random.Range(0f, 5f);
         Debug.Log(switchTime);
     }
 
@@ -65,12 +65,16 @@ public class FishStateHandler : MonoBehaviour
             switchTime = 3f;
 
             currentState = FishState.Hungry;
+
+            UpdateFishPosition(hungryYPosition);
         }
         else if(currentState == FishState.Hungry)
         {
-            switchTime = Random.Range(5f, 10f);
+            switchTime = Random.Range(3f, 8f);
 
             currentState = FishState.Normal;
+
+            UpdateFishPosition(- hungryYPosition);
         }
 
         Debug.Log(switchTime);
@@ -85,11 +89,32 @@ public class FishStateHandler : MonoBehaviour
 
     void HungryState()
     {
-
+     
     }
 
     void CaughtState()
     {
 
+    }
+
+    void UpdateFishPosition(float offSet)
+    {
+        Vector3 newPos = new Vector3(transform.localPosition.x, transform.localPosition.y + offSet, transform.localPosition.z);
+        //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + offSet, transform.localPosition.z);
+
+        StartCoroutine(UpdatingPosition(newPos));
+    }
+
+    IEnumerator UpdatingPosition(Vector3 newPos)
+    {
+        float travelPersent = 0f;
+
+        while (travelPersent < 100)
+        {
+            travelPersent += Time.deltaTime * 4f;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, newPos, travelPersent);
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
