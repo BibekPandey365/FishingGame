@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MainCanvasHandler : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class MainCanvasHandler : MonoBehaviour
     int selectedPool = 0;
 
     [Header("Time Dropdown Menu")]
-    [SerializeField] Dropdown timeDropdown;
+    [SerializeField] Toggle[] timeToggles;
+    int selectedTimeToggle = 0;
 
 
     void Start()
@@ -31,7 +33,6 @@ public class MainCanvasHandler : MonoBehaviour
         poolSelectBox.SetActive(true);
         timeSelectBox.SetActive(false);
         handSelectBox.SetActive(false);
-
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class MainCanvasHandler : MonoBehaviour
         PoolToDisplay();
 
         //Time Select Menu
-        timeDropdown.Show();
+        UpdateTimeToggle();
     }
 
     #region MainPanel
@@ -61,9 +62,6 @@ public class MainCanvasHandler : MonoBehaviour
     {
         poolSelectBox.SetActive(false);
         timeSelectBox.SetActive(true);
-
-        //Time Select Menu
-        StartCoroutine("HideExtraIteam");
     }
 
     public void LeftButton()
@@ -122,6 +120,36 @@ public class MainCanvasHandler : MonoBehaviour
         handSelectBox.SetActive(false);
     }
 
+    public void UpdateTimeToggle()
+    {
+        for (int i = 0; i < timeToggles.Length; i++)
+        {
+            if(timeToggles[i].isOn)
+            {
+                if(i != selectedTimeToggle)
+                {
+                    timeToggles[selectedTimeToggle].isOn = false;
+                    selectedTimeToggle = i;
+                    timeToggles[selectedTimeToggle].isOn = true;
+                    print(selectedTimeToggle);
+                }
+            }
+            else
+            {
+                if (i == selectedTimeToggle)
+                {
+                    timeToggles[i].isOn = true;
+                }
+                else
+                {
+                    timeToggles[i].isOn = false;
+                }
+            }
+        }
+    }
+
+    #endregion
+
     #region HandSelection
 
     public void RightHandButton()
@@ -133,21 +161,6 @@ public class MainCanvasHandler : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
-    IEnumerator HideExtraIteam()
-    {
-        yield return new WaitForSeconds(0.05f);
-
-        int listIteamIndex = timeDropdown.transform.childCount - 1;
-        GameObject listIteam = timeDropdown.transform.GetChild(listIteamIndex).gameObject;
-        GameObject viewportObject = listIteam.transform.GetChild(0).gameObject;
-        GameObject contentObject = viewportObject.transform.GetChild(0).gameObject;
-        GameObject firstIteam = contentObject.transform.GetChild(0).gameObject;
-        firstIteam.SetActive(false);
-        print(firstIteam.name);
-    }
-
-    #endregion
 
     #endregion
 
