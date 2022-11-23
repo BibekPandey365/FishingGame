@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class SelectionHandler : MonoBehaviour
 {
+    public static SelectionHandler instance;
 
-    void Start()
+    public static int selectedPool;
+    public static int selectedTimeIndex;
+
+    void Awake()
     {
-        
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void Update()

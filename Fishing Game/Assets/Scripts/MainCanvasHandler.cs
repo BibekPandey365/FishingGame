@@ -62,6 +62,8 @@ public class MainCanvasHandler : MonoBehaviour
     {
         poolSelectBox.SetActive(false);
         timeSelectBox.SetActive(true);
+
+        SelectionHandler.selectedPool = selectedPool;
     }
 
     public void LeftButton()
@@ -111,6 +113,8 @@ public class MainCanvasHandler : MonoBehaviour
     {
         timeSelectBox.SetActive(false);
         handSelectBox.SetActive(true);
+
+        SelectionHandler.selectedTimeIndex = selectedTimeToggle;
     }
 
     public void CancelButton()
@@ -131,7 +135,6 @@ public class MainCanvasHandler : MonoBehaviour
                     timeToggles[selectedTimeToggle].isOn = false;
                     selectedTimeToggle = i;
                     timeToggles[selectedTimeToggle].isOn = true;
-                    print(selectedTimeToggle);
                 }
             }
             else
@@ -154,12 +157,12 @@ public class MainCanvasHandler : MonoBehaviour
 
     public void RightHandButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void LeftHandButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     #endregion

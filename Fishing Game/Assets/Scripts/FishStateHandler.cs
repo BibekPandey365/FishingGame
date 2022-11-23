@@ -21,7 +21,6 @@ public class FishStateHandler : MonoBehaviour
         currentState = FishState.Normal;
 
         switchTime = Random.Range(0f, 5f);
-        Debug.Log(switchTime);
     }
 
     void Update()
@@ -77,8 +76,6 @@ public class FishStateHandler : MonoBehaviour
             UpdateFishPosition(- hungryYPosition);
         }
 
-        Debug.Log(switchTime);
-        print(currentState);
         fishSpriteSwitcher.SpriteSwitcher(currentState);
     }
 
