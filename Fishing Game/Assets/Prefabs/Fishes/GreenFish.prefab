@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5321182991223988806}
   - component: {fileID: 2080344082616287219}
   - component: {fileID: -3821701062100153376}
+  - component: {fileID: 2394307535408895163}
   m_Layer: 0
   m_Name: GreenFish
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hungryYPosition: 0.3
+  currentState: 0
 --- !u!114 &-3821701062100153376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +113,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalImg: {fileID: 21300000, guid: 9beb75a3bba650b4b88da5590a1dee85, type: 3}
   hungryImg: {fileID: 21300000, guid: db57d8c26c12e704aa0c9eebe9b872f1, type: 3}
+--- !u!60 &2394307535408895163
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321182991223988804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 1.0230769}
+    newSize: {x: 1.04, y: 1.33}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.35384616, y: -0.20384616}
+      - {x: 0.33846155, y: -0.16538462}
+      - {x: 0.33846155, y: -0.042307694}
+      - {x: 0.37692308, y: 0.05}
+      - {x: 0.37692308, y: 0.31923077}
+      - {x: 0.2846154, y: 0.41923076}
+      - {x: 0.13846155, y: 0.51153845}
+      - {x: -0.053846154, y: 0.51153845}
+      - {x: -0.13846155, y: 0.41153845}
+      - {x: -0.24615385, y: 0.2576923}
+      - {x: -0.31538463, y: 0.2423077}
+      - {x: -0.3923077, y: 0.18076923}
+      - {x: -0.3923077, y: 0.1423077}
+      - {x: -0.32307693, y: 0.08846154}
+      - {x: -0.23846154, y: -0.103846155}
+      - {x: -0.2846154, y: -0.20384616}
+      - {x: -0.2769231, y: -0.32692307}
+      - {x: -0.17692308, y: -0.4653846}
+      - {x: -0.092307694, y: -0.51153845}
+      - {x: 0.1923077, y: -0.51153845}
+      - {x: 0.25384617, y: -0.4653846}
+      - {x: 0.32307693, y: -0.39615384}
+      - {x: 0.37692308, y: -0.29615384}

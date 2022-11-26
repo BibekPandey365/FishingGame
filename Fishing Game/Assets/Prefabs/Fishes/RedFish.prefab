@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5321182991223988806}
   - component: {fileID: 2080344082616287219}
   - component: {fileID: -3821701062100153376}
+  - component: {fileID: -6070421014855030425}
   m_Layer: 0
   m_Name: RedFish
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hungryYPosition: 0.3
+  currentState: 0
 --- !u!114 &-3821701062100153376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +113,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalImg: {fileID: 21300000, guid: 65cb4e4046b8ea041bc12e35d07e3efe, type: 3}
   hungryImg: {fileID: 21300000, guid: cd31fd22d65160048abdbe1f58f9ed28, type: 3}
+--- !u!60 &-6070421014855030425
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321182991223988804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 1.0230769}
+    newSize: {x: 1.04, y: 1.33}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.34615386, y: -0.18846154}
+      - {x: 0.33076924, y: -0.15769231}
+      - {x: 0.36153847, y: -0.05}
+      - {x: 0.3923077, y: 0.034615386}
+      - {x: 0.3923077, y: 0.28846154}
+      - {x: 0.32307693, y: 0.38846153}
+      - {x: 0.12307692, y: 0.51153845}
+      - {x: -0.03076923, y: 0.51153845}
+      - {x: -0.1923077, y: 0.3423077}
+      - {x: -0.4, y: 0.16538462}
+      - {x: -0.4, y: 0.11923077}
+      - {x: -0.2923077, y: -0.034615386}
+      - {x: -0.23076923, y: -0.15769231}
+      - {x: -0.24615385, y: -0.33461538}
+      - {x: -0.2, y: -0.39615384}
+      - {x: -0.1, y: -0.48846152}
+      - {x: -0.046153847, y: -0.51153845}
+      - {x: 0.24615385, y: -0.51153845}
+      - {x: 0.36923078, y: -0.38076922}
+      - {x: 0.36153847, y: -0.32692307}
+      - {x: 0.36153847, y: -0.23461539}

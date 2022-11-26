@@ -13,6 +13,7 @@ public class HoleMover : MonoBehaviour
 
     void Update()
     {
+
     }
 
     public void MoveHoleTo(Transform waypoint)

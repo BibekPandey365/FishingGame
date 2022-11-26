@@ -13,7 +13,7 @@ public class FishStateHandler : MonoBehaviour
         Normal, Hungry, Caught,
     }
 
-    FishState currentState;
+    public FishState currentState;
 
     void Start()
     {
@@ -43,6 +43,8 @@ public class FishStateHandler : MonoBehaviour
                 CaughtState();
                 break;
         }
+
+        fishSpriteSwitcher.SpriteSwitcher(currentState);
     }
 
     private void NormalHungrySwitcherProcess()
@@ -75,8 +77,6 @@ public class FishStateHandler : MonoBehaviour
 
             UpdateFishPosition(- hungryYPosition);
         }
-
-        fishSpriteSwitcher.SpriteSwitcher(currentState);
     }
 
     void NormalState()

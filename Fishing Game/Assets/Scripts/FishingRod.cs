@@ -4,37 +4,72 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
+    [SerializeField] Transform hook;
+    [SerializeField] Transform net;
+    [SerializeField] GameObject FishingNet;
+
     [SerializeField] float speedModifier = 0.012f;
 
-    Touch touch;
-    Vector2 movement;
+    public GameObject caughtFish;
 
     void Start()
     {
-
+        caughtFish = null;
     }
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        MoveRod();
+    }
 
-        float clampedY = Mathf.Clamp(transform.position.y, -1f, 5f);
-        float clampedX = Mathf.Clamp(transform.position.x, -1f, 4f);
-        transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+    private void MoveRod()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector3(mousePos.x, mousePos.y, transform.position.z);
+    }
 
-        //TouchControl/MobileInput
-        if (Input.touchCount > 0)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (caughtFish == null)
         {
-            touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Moved)
+            if (collision.tag == "Fish")
             {
-                transform.position = new Vector3(
-                    transform.position.x + touch.deltaPosition.x * speedModifier,
-                    transform.position.y + touch.deltaPosition.y * speedModifier,
-                    transform.position.z);
+                CatchFish(collision.gameObject);
             }
         }
+        else
+        {
+            if (collision.tag == "Net")
+            {
+                caughtFish.transform.SetParent(net);
+                caughtFish.GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.NameToID("Defult");
+                //StartCoroutine("DestroyFish");
+            }
+        }
+    }
+
+    void CatchFish(GameObject fish)
+    {
+        if (fish == null) return;
+
+        if (fish.GetComponent<FishStateHandler>().currentState == FishStateHandler.FishState.Hungry)
+        {
+            caughtFish = fish;
+            caughtFish.GetComponent<FishStateHandler>().currentState = FishStateHandler.FishState.Caught;
+            caughtFish.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
+            caughtFish.GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.NameToID("Caught");
+            caughtFish.transform.SetParent(hook);
+            caughtFish.transform.position = new Vector3(hook.position.x - 2f, hook.position.y, transform.position.z);
+
+            FishingNet.GetComponent<FishingNet>().PlayNetInAnmation();
+        }
+    }
+
+
+    IEnumerator DestroyFish()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(caughtFish);
+        caughtFish = null;
     }
 }
