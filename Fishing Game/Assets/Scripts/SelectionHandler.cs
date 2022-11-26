@@ -8,6 +8,7 @@ public class SelectionHandler : MonoBehaviour
 
     public static int selectedPool;
     public static int selectedTimeIndex;
+    public static int selectedHand;
 
     void Awake()
     {

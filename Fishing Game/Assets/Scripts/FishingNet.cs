@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 
 public class FishingNet : MonoBehaviour
 {
+    [SerializeField] Transform net;
     Animator animator;
 
     void Start()
@@ -21,8 +22,14 @@ public class FishingNet : MonoBehaviour
     {
         if(collision.tag == "Fish")
         {
+            collision.gameObject.transform.SetParent(net);
+            collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.NameToID("Defult");
+
             animator.SetInteger("NetState", 2);
             StartCoroutine("DestroyFish", collision.gameObject);
+
+            //Add Score
+            ScoreManager.score++;
         }
     }
 

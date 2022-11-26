@@ -16,6 +16,11 @@ public class GameTimeManager : MonoBehaviour
     void Update()
     {
         UpdateTimer();
+
+        if(secondLeft <= 0f && !InGameMenu.didWin)
+        {
+            FindObjectOfType<InGameMenu>().OnLose();
+        }
     }
 
     void GetInitialTime()
@@ -39,6 +44,12 @@ public class GameTimeManager : MonoBehaviour
 
     void UpdateTimer()
     {
+        if(secondLeft > 500)
+        {
+            timer.text = "";
+            return;
+        }
+
         if (secondLeft > 0f)
         {
             secondLeft -= Time.deltaTime;

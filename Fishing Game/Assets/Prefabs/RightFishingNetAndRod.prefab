@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9711a5a167cc3ee4188bfa8064e88d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  net: {fileID: 3351613042156850863}
 --- !u!1 &3351613041578403151
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hook: {fileID: 3351613041578403136}
-  net: {fileID: 3351613042156850863}
   FishingNet: {fileID: 3351613040907998902}
   speedModifier: 0.005
   caughtFish: {fileID: 0}

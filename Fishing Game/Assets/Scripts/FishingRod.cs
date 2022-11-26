@@ -5,7 +5,7 @@ using UnityEngine;
 public class FishingRod : MonoBehaviour
 {
     [SerializeField] Transform hook;
-    [SerializeField] Transform net;
+    //[SerializeField] Transform net;
     [SerializeField] GameObject FishingNet;
 
     [SerializeField] float speedModifier = 0.012f;
@@ -37,7 +37,7 @@ public class FishingRod : MonoBehaviour
                 CatchFish(collision.gameObject);
             }
         }
-        else
+        /*else
         {
             if (collision.tag == "Net")
             {
@@ -45,7 +45,7 @@ public class FishingRod : MonoBehaviour
                 caughtFish.GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.NameToID("Defult");
                 //StartCoroutine("DestroyFish");
             }
-        }
+        }*/
     }
 
     void CatchFish(GameObject fish)

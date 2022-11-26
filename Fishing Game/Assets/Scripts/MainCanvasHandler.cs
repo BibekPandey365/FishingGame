@@ -33,6 +33,9 @@ public class MainCanvasHandler : MonoBehaviour
         poolSelectBox.SetActive(true);
         timeSelectBox.SetActive(false);
         handSelectBox.SetActive(false);
+
+
+        FindObjectOfType<AdManager>().RequestInterstitial();
     }
 
     void Update()
@@ -50,6 +53,11 @@ public class MainCanvasHandler : MonoBehaviour
     {
         mainPanel.SetActive(false);
         selectPanel.SetActive(true);
+    }
+
+    public void MoreButton()
+    {
+        Application.OpenURL("https://play.google.com/store/apps/dev?id=7011584689522728649");
     }
 
     #endregion
@@ -155,15 +163,22 @@ public class MainCanvasHandler : MonoBehaviour
 
     #region HandSelection
 
-    public void RightHandButton()
-    {
-        SceneManager.LoadScene(1);
-    }
-
     public void LeftHandButton()
     {
+        SelectionHandler.selectedHand = 0;
         SceneManager.LoadScene(1);
+
+        FindObjectOfType<AdManager>().ShowInterstitial();
     }
+
+    public void RightHandButton()
+    {
+        SelectionHandler.selectedHand = 1;
+        SceneManager.LoadScene(1);
+
+        //FindObjectOfType<AdManager>().ShowInterstitial();
+    }
+
 
     #endregion
 
