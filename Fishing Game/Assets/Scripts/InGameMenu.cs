@@ -11,7 +11,8 @@ public class InGameMenu : MonoBehaviour
 
     [SerializeField] GameObject fishingTool;
 
-    public static bool didWin;
+    public static bool isGameOver;
+    //public static bool isGameOver;
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class InGameMenu : MonoBehaviour
 
     void Start()
     {
-        didWin = false;
+        isGameOver = false;
 
         gamePanel.SetActive(true);
         winPanel.SetActive(false);
@@ -38,33 +39,34 @@ public class InGameMenu : MonoBehaviour
 
     public void OnLose()
     {
+        FindObjectOfType<AudioManager>().Play("Lose");
+
         gamePanel.SetActive(false);
         winPanel.SetActive(false);
         losePanel.SetActive(true);
+        isGameOver = true;
 
         fishingTool.SetActive(false);
 
         Time.timeScale = 0f;
 
         FindObjectOfType<AdManager>().ShowInterstitial();
-
-        FindObjectOfType<AudioManager>().Play("Lose");
     }
 
     public void OnWin()
     {
+        FindObjectOfType<AudioManager>().Play("Win");
+
         gamePanel.SetActive(false);
         winPanel.SetActive(true);
         losePanel.SetActive(false);
-        didWin = true;
+        isGameOver = true;
 
         fishingTool.SetActive(false);
 
         Time.timeScale = 0f;
 
         FindObjectOfType<AdManager>().ShowInterstitial();
-
-        FindObjectOfType<AudioManager>().Play("Win");
     }
 
     public void BackButton()

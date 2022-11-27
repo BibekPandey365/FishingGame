@@ -12,8 +12,11 @@ public class PoolAndFishingToolSpawner : MonoBehaviour
 
     void Start()
     {
-        GameObject newPool = Instantiate(pools[SelectionHandler.selectedPool], poolSpawnPonint.transform.position, transform.rotation);
-        GameObject newFishingTool = Instantiate(fishingTools[SelectionHandler.selectedHand], FishingToolSpawnPonint.transform.position, transform.rotation);
+        GameObject newPool = Instantiate(pools[SelectionHandler.selectedPool],
+            poolSpawnPonint.transform.position, transform.rotation, this.transform);
+
+        GameObject newFishingTool = Instantiate(fishingTools[SelectionHandler.selectedHand],
+            FishingToolSpawnPonint.transform.position, transform.rotation, this.transform);
     }
 
     void Update()

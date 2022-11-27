@@ -19,6 +19,7 @@ public class FishingRod : MonoBehaviour
 
     void Update()
     {
+        if (InGameMenu.isGameOver) return;
         MoveRod();
     }
 
@@ -35,8 +36,6 @@ public class FishingRod : MonoBehaviour
             if (collision.tag == "Fish")
             {
                 CatchFish(collision.gameObject);
-
-                FindObjectOfType<AudioManager>().Play("CatchFish");
             }
         }
     }
@@ -55,14 +54,8 @@ public class FishingRod : MonoBehaviour
             caughtFish.transform.position = new Vector3(hook.position.x - 2f, hook.position.y, transform.position.z);
 
             FishingNet.GetComponent<FishingNet>().PlayNetInAnmation();
+
+            FindObjectOfType<AudioManager>().Play("CatchFish");
         }
-    }
-
-
-    IEnumerator DestroyFish()
-    {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(caughtFish);
-        caughtFish = null;
     }
 }

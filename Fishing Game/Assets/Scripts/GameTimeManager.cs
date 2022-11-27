@@ -17,7 +17,7 @@ public class GameTimeManager : MonoBehaviour
     {
         UpdateTimer();
 
-        if(secondLeft <= 0f && !InGameMenu.didWin)
+        if(secondLeft <= 0f && !InGameMenu.isGameOver)
         {
             FindObjectOfType<InGameMenu>().OnLose();
         }

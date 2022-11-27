@@ -160,6 +160,8 @@ public class MainCanvasHandler : MonoBehaviour
                     timeToggles[selectedTimeToggle].isOn = false;
                     selectedTimeToggle = i;
                     timeToggles[selectedTimeToggle].isOn = true;
+
+                    FindObjectOfType<AudioManager>().Play("Click");
                 }
             }
             else
