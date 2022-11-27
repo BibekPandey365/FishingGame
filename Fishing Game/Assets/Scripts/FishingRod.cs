@@ -35,17 +35,10 @@ public class FishingRod : MonoBehaviour
             if (collision.tag == "Fish")
             {
                 CatchFish(collision.gameObject);
+
+                FindObjectOfType<AudioManager>().Play("CatchFish");
             }
         }
-        /*else
-        {
-            if (collision.tag == "Net")
-            {
-                caughtFish.transform.SetParent(net);
-                caughtFish.GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.NameToID("Defult");
-                //StartCoroutine("DestroyFish");
-            }
-        }*/
     }
 
     void CatchFish(GameObject fish)

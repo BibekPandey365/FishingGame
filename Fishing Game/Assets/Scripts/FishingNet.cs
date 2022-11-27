@@ -30,6 +30,8 @@ public class FishingNet : MonoBehaviour
 
             //Add Score
             ScoreManager.score++;
+
+            FindObjectOfType<AudioManager>().Play("Pull");
         }
     }
 

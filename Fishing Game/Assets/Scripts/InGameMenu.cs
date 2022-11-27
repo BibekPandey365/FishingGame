@@ -28,7 +28,6 @@ public class InGameMenu : MonoBehaviour
 
 
 
-        FindObjectOfType<AdManager>().ShowInterstitial();
         FindObjectOfType<AdManager>().RequestInterstitial();
     }
 
@@ -48,6 +47,8 @@ public class InGameMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         FindObjectOfType<AdManager>().ShowInterstitial();
+
+        FindObjectOfType<AudioManager>().Play("Lose");
     }
 
     public void OnWin()
@@ -62,25 +63,34 @@ public class InGameMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         FindObjectOfType<AdManager>().ShowInterstitial();
+
+        FindObjectOfType<AudioManager>().Play("Win");
     }
 
     public void BackButton()
     {
         SceneManager.LoadScene(0);
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     public void HomeButton()
     {
         SceneManager.LoadScene(0);
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     public void RestartButton()
     {
         SceneManager.LoadScene(1);
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     public void MenuButton()
     {
-        
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 }

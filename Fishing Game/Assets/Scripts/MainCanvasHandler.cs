@@ -53,11 +53,15 @@ public class MainCanvasHandler : MonoBehaviour
     {
         mainPanel.SetActive(false);
         selectPanel.SetActive(true);
+
+        FindObjectOfType<AudioManager>().Play("Done");
     }
 
     public void MoreButton()
     {
         Application.OpenURL("https://play.google.com/store/apps/dev?id=7011584689522728649");
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     #endregion
@@ -72,6 +76,8 @@ public class MainCanvasHandler : MonoBehaviour
         timeSelectBox.SetActive(true);
 
         SelectionHandler.selectedPool = selectedPool;
+
+        FindObjectOfType<AudioManager>().Play("Done");
     }
 
     public void LeftButton()
@@ -84,6 +90,8 @@ public class MainCanvasHandler : MonoBehaviour
         {
             selectedPool = pools.Length-1;
         }
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     public void RightButton()
@@ -96,6 +104,8 @@ public class MainCanvasHandler : MonoBehaviour
         {
             selectedPool = 0;
         }
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     void PoolToDisplay()
@@ -123,6 +133,11 @@ public class MainCanvasHandler : MonoBehaviour
         handSelectBox.SetActive(true);
 
         SelectionHandler.selectedTimeIndex = selectedTimeToggle;
+
+
+        FindObjectOfType<AdManager>().ShowInterstitial();
+
+        FindObjectOfType<AudioManager>().Play("Done");
     }
 
     public void CancelButton()
@@ -130,6 +145,8 @@ public class MainCanvasHandler : MonoBehaviour
         poolSelectBox.SetActive(true);
         timeSelectBox.SetActive(false);
         handSelectBox.SetActive(false);
+
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
     public void UpdateTimeToggle()
@@ -168,7 +185,9 @@ public class MainCanvasHandler : MonoBehaviour
         SelectionHandler.selectedHand = 0;
         SceneManager.LoadScene(1);
 
-        FindObjectOfType<AdManager>().ShowInterstitial();
+        //FindObjectOfType<AdManager>().ShowInterstitial();
+
+        FindObjectOfType<AudioManager>().Play("Done");
     }
 
     public void RightHandButton()
@@ -177,6 +196,8 @@ public class MainCanvasHandler : MonoBehaviour
         SceneManager.LoadScene(1);
 
         //FindObjectOfType<AdManager>().ShowInterstitial();
+
+        FindObjectOfType<AudioManager>().Play("Done");
     }
 
 
