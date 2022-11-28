@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectionHandler : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SelectionHandler : MonoBehaviour
     public static int selectedPool;
     public static int selectedTimeIndex;
     public static int selectedHand;
+
+    public static bool isMenuPressed = false;
 
     void Awake()
     {

@@ -168,7 +168,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &2080344082616287219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +213,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5895653, y: 0.5795003}
     oldSize: {x: 0.8, y: 1.0230769}
     newSize: {x: 1.04, y: 1.33}
     adaptiveTilingThreshold: 0.5

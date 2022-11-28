@@ -35,6 +35,8 @@ public class MainCanvasHandler : MonoBehaviour
         handSelectBox.SetActive(false);
 
 
+        CheckIfMenuButtonPressed();
+
         FindObjectOfType<AdManager>().RequestInterstitial();
     }
 
@@ -45,6 +47,16 @@ public class MainCanvasHandler : MonoBehaviour
 
         //Time Select Menu
         UpdateTimeToggle();
+    }
+
+    private void CheckIfMenuButtonPressed()
+    {
+        if (SelectionHandler.isMenuPressed)
+        {
+            mainPanel.SetActive(false);
+            selectPanel.SetActive(true);
+            SelectionHandler.isMenuPressed = false;
+        }
     }
 
     #region MainPanel

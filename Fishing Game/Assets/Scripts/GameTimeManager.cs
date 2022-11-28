@@ -6,11 +6,20 @@ using TMPro;
 public class GameTimeManager : MonoBehaviour
 {
     [SerializeField] TMP_Text timer;
+    [SerializeField] TMP_Text totalTime;
     public static float secondLeft;
 
     void Start()
     {
         GetInitialTime();
+        SetTotalTime();
+    }
+
+    private void SetTotalTime()
+    {
+        string min = ((int)secondLeft / 60).ToString();
+        string sec = (secondLeft % 60).ToString("F0");
+        totalTime.text = min + " : " + sec;
     }
 
     void Update()

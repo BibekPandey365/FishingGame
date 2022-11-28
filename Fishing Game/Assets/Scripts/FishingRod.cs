@@ -46,12 +46,16 @@ public class FishingRod : MonoBehaviour
 
         if (fish.GetComponent<FishStateHandler>().currentState == FishStateHandler.FishState.Hungry)
         {
+            fish.gameObject.SetActive(false);  //Changing parent of fish is creating a wired visual glitch of setting fish inactive before changing position
             caughtFish = fish;
+            caughtFish.transform.SetParent(hook);
+            caughtFish.gameObject.SetActive(true);
+
+            caughtFish.transform.position = new Vector3(hook.position.x, hook.position.y, transform.position.z);
+            caughtFish.transform.localPosition = new Vector3(0f, 0f, transform.localPosition.z);
             caughtFish.GetComponent<FishStateHandler>().currentState = FishStateHandler.FishState.Caught;
             caughtFish.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
             caughtFish.GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.NameToID("Caught");
-            caughtFish.transform.SetParent(hook);
-            caughtFish.transform.position = new Vector3(hook.position.x - 2f, hook.position.y, transform.position.z);
 
             FishingNet.GetComponent<FishingNet>().PlayNetInAnmation();
 

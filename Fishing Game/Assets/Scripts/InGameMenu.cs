@@ -92,6 +92,8 @@ public class InGameMenu : MonoBehaviour
 
     public void MenuButton()
     {
+        SelectionHandler.isMenuPressed = true;
+        SceneManager.LoadScene(0);
 
         FindObjectOfType<AudioManager>().Play("Click");
     }

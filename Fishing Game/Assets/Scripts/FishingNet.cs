@@ -23,6 +23,9 @@ public class FishingNet : MonoBehaviour
         if(collision.tag == "Fish")
         {
             collision.gameObject.transform.SetParent(net);
+            collision.gameObject.transform.position = new Vector3(net.position.x, net.position.y, transform.position.z);
+            collision.gameObject.transform.localPosition = new Vector3(0f, 0f, transform.position.z);
+
             collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.NameToID("Defult");
 
             animator.SetInteger("NetState", 2);
