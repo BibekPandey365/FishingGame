@@ -213,5 +213,5 @@ MonoBehaviour:
   - {fileID: 5321182991223988804, guid: f0f04eca29237404692acb90a48fa6ab, type: 3}
   - {fileID: 5321182991223988804, guid: b569fee96fdf41c4db7577394944b7fa, type: 3}
   - {fileID: 5321182991223988804, guid: 1cd96664ee56155448f58225f758552a, type: 3}
-  offsetX: -0.05
-  offsetY: -0.35
+  offsetX: -0.025
+  offsetY: -0.3
